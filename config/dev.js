@@ -15,6 +15,12 @@ module['exports'] = {
     user: 'username',
     pass: 'password'
   },
+  "dogecoin": {
+    host: 'localhost',
+    port: 9903,
+    user: 'username',
+    pass: 'password'
+  },
   "datasource": {
     type: "couchdb",
     username: "admin",
