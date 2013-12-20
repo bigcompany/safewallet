@@ -1,0 +1,9 @@
+{>"layouts/main"/}
+
+{<title}Foo {title}{/title}
+
+{<html_body}
+{/html_body}
+
+{<copy}{copy|s}{/copy}
+

@@ -1,0 +1,35 @@
+<div class="wallet" xmlns="http://www.w3.org/1999/html">
+
+    <h1>Wallet</h1>
+    
+    <div>
+      <p><b>Status:</b> <span class="status"></span></p>
+      <div class="balance">
+        <h2>Balance</h2>
+        <div class="currencies"></div>
+      </div>
+
+    </div>
+
+    <div class="ledger">
+      <h2>Recent Transactions</h2>
+      <div class="transactions">
+        <div class="transaction">
+          <span class="status"></span>
+          <span class="sendTo"></span>
+          <span class="currency"></span>
+          <span class="amount"></span>
+        </div>
+      </div>
+    </div>
+
+    <br/><br/>
+    <form action="/deposit" method="GET">
+      <input type="submit" value="Make a deposit"/>
+    </form>
+
+    <form action="/withdraw" method="GET">
+      <input type="submit" value="Make a withdrawal"/>
+    </form>
+
+</div>

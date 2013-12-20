@@ -1,0 +1,6 @@
+// processes withdrawal requests
+var withdrawals = require('../lib/withdrawals');
+
+withdrawals.start({
+  "currency": "ppcoin"
+});

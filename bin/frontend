@@ -1,0 +1,6 @@
+// the web frontend and api for safewallet
+var server = require('../lib/frontend');
+server.start(function(err, app){
+  var addr = app.server.address();
+  console.log('safe wallet server started on http://' + addr.address + ":" + addr.port);
+});

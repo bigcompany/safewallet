@@ -1,0 +1,5 @@
+// the deposit service for moving coins from the "hot-wallet" to the "cold-wallet"
+var deposit = require('../lib/deposits');
+deposit.start({
+  "currency": "ppcoin"
+});

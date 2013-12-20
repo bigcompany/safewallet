@@ -1,0 +1,37 @@
+{
+  "name": "safewallet",
+  "version": "0.1.0",
+  "description": "The world's first open-source crypto-currency bank.",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap /test"
+  },
+  "bin": {
+    "safe-deposits": "./bin/depsoits",
+    "safe-front": "./bin/frotnend",
+    "safe-withdrawals": "./bin/withdrawals"
+  },
+  "repository": {
+   "type": "git",
+   "url": "http://github.com/bigcompany/safewallet.git"
+  },
+  "license": "MIT",
+  "author": "Marak Squires <support@marak.com>",
+  "devDependencies": {
+    "tap": "*",
+    "supertest": "*"
+  },
+  "dependencies": {
+    "bitcoin": "*",
+    "debug": "*",
+    "html-lang": "*",
+    "node-uuid": "~1.4.1",
+    "jugglingdb-nano": "https://github.com/jugglingdb/nano-adapter/tarball/master",
+    "resource": "0.5.x",
+    "resource-email": "https://github.com/bigcompany/resource-email/tarball/master",
+    "resource-http": "https://github.com/bigcompany/resource-http/tarball/master",
+    "resource-user": "https://github.com/bigcompany/resource-user/tarball/master",
+    "resource-wallet": "https://github.com/bigcompany/resource-wallet/tarball/master",
+    "view": "0.5.x"
+  }
+}

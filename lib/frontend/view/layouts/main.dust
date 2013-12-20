@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>{title}</title>
+
+        <!-- jQuery + jQuery template support -->
+        <script type="text/javascript" src="./lib/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="./lib/jquery.tmpl.js"></script>
+
+        <!-- Alpaca -->
+        <script type="text/javascript" src="./components/alpaca/alpaca.js"></script>
+        <link type="text/css" href="./css/alpaca.css" rel="stylesheet" />
+
+        <!-- Custom Files -->
+        <script type="text/javascript" src="{page}.js"></script>
+        <link type="text/css" href="{page}.css" rel="stylesheet" />
+
+    </head>
+    <body>
+
+        {+html_body}
+        {/html_body}
+        <div id="form"></div>
+
+    </body>
+</html>
