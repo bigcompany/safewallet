@@ -1,5 +1,12 @@
 // the deposit service for moving coins from the "hot-wallet" to the "cold-wallet"
-var deposit = require('../lib/deposits');
+var deposit = require('../lib/deposits'),
+    argv = require('optimist').argv;
+
+if (typeof argv.currency === "undefined") {
+  console.log('currency argument is required. exiting deposits script without running');
+  process.exit(1);
+}
+
 deposit.start({
-  "currency": "ppcoin"
+  "currency": argv.currency
 });

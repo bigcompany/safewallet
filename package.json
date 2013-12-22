@@ -27,6 +27,7 @@
     "html-lang": "*",
     "node-uuid": "~1.4.1",
     "jugglingdb-nano": "https://github.com/jugglingdb/nano-adapter/tarball/master",
+    "optimist": "*",
     "resource": "0.5.x",
     "resource-email": "https://github.com/bigcompany/resource-email/tarball/master",
     "resource-http": "https://github.com/bigcompany/resource-http/tarball/master",

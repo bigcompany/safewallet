@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+var argv = require('optimist').argv;
+
+// TODO: add remote call to monitoring service
+console.log('**** frontend has crashed****');
