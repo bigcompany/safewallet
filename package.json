@@ -7,8 +7,8 @@
     "test": "tap /test"
   },
   "bin": {
-    "safe-deposits": "./bin/depsoits",
-    "safe-front": "./bin/frotnend",
+    "safe-deposits": "./bin/deposits",
+    "safe-front": "./bin/frontend",
     "safe-withdrawals": "./bin/withdrawals"
   },
   "repository": {
