@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // processes withdrawal requests
 var withdrawals = require('../lib/withdrawals');
 

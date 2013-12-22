@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // the web frontend and api for safewallet
 var server = require('../lib/frontend');
 server.start(function(err, app){

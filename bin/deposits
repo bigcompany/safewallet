@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // the deposit service for moving coins from the "hot-wallet" to the "cold-wallet"
 var deposit = require('../lib/deposits'),
     argv = require('optimist').argv;
