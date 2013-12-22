@@ -97,7 +97,7 @@ tap.test("try to get /wallet page with expired cookie", function (t) {
   });
 });
 
-tap.test("try to login with the first user - wrong password", function (t) {
+tap.test("try to log in with the first user - wrong password", function (t) {
   agent
     .post('/login')
     .send({ name: 'marak', password: "1234" })
@@ -109,7 +109,7 @@ tap.test("try to login with the first user - wrong password", function (t) {
   });
 });
 
-tap.test("try to login with the first user - no password", function (t) {
+tap.test("try to log in with the first user - no password", function (t) {
   agent
     .post('/login')
     .send({ name: 'marak', password: "" })
@@ -121,7 +121,7 @@ tap.test("try to login with the first user - no password", function (t) {
   });
 });
 
-tap.test("try to login with the first user - correct password", function (t) {
+tap.test("try to log in with the first user - correct password", function (t) {
   agent
     .post('/login')
     .send({ name: 'marak', password: "foo" })
