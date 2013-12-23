@@ -4,7 +4,7 @@
   "description": "The world's first open-source crypto-currency bank.",
   "main": "index.js",
   "scripts": {
-    "test": "tap /test"
+    "test": "tap test"
   },
   "bin": {
     "safe-deposits": "./bin/deposits",
