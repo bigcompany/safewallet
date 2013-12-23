@@ -1,5 +1,4 @@
-- add support for additional currencies ( LTC, Dogecoin, etc.. )
-- move receiving address generation logic from signup process because it takes too long ( move to wallet page as button )
+- add support for additional currencies ( LTC, etc.. )
 - expose user, wallet, and ledger resources as RESTful API ( using resource-rest )
 - move session assignment / login code into a separate module
 - add build process to automatically minify and compress all client-side assets
