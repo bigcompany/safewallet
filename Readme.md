@@ -37,7 +37,7 @@ The Safe Wallet system is built in such a way that even with complete loss of se
 
 ### Key points
 
- - There is a pool of offline "cold-wallets"
+ - [There is a pool of offline "cold-wallets"](https://github.com/bigcompany/safewallet/blob/master/creating-offline-wallet.md)
  - Offline wallets are protected with physical security measures
  - Newly deposited coins are *immediately* transfer to offline wallets
  - A wallet database is used to keep track of account holder balances
@@ -45,7 +45,6 @@ The Safe Wallet system is built in such a way that even with complete loss of se
  - Withdrawals requests are processed on-demand
  - Withdrawals are subject to security procedures, such as email, voice, or video confirmation
  - When the ledger needs to be settled, an offline wallet is manually brought online, drained, and not re-used
-
 
 ## Architecture
 
