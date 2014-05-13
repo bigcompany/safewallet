@@ -82,7 +82,7 @@ Processes account holder coin withdrawal requests.
 
  - Checks ledger database for accounts payable
  - Settles accounts payable by draining current "hot-wallet"
- - Can only make payments if a previously off-line wallet has been manually brought on-line
+ - Can only make payments if a previously offline wallet has been manually brought on-line
  - Withdrawal requests are subject to security measures before they are approved
  
 *To start withdrawals in development environment* 

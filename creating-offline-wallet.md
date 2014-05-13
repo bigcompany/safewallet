@@ -22,11 +22,11 @@ Once the computer is setup you will now take it permanently offline. Depending o
 
 You *must* disable all of these devices at the hardware level.
 
-If you have successfully disabling these services, your computer is now off-line.
+If you have successfully disabling these services, your computer is now offline.
 
 **Printer**
 
-Almost any modern printer can be used for this setup. Multi-function devices are discouraged. A simple printer with no additional network or bluetooth functionalities would be idea. 
+Almost any modern printer can be used for this setup. Multi-function devices are discouraged. A simple printer with no additional network or bluetooth functionalities would be ideal. 
 
 A printer can be a vector of attack, so it's important to pick a simple secure printer that will only be connected to the secure computer we've set up.
 
@@ -64,7 +64,7 @@ Once this process is complete you will have 3 copies of your public / private ke
  - The local file-system of the secure computer
  - Printed on a piece of paper
 
-It is now almost impossible for anyone to hack into your wallets unless they have can physical obtain one of these items
+It is now almost impossible for anyone to hack into your wallets unless they can physically obtain one of these items.
 
 # Putting the offline wallets back online
 
