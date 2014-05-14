@@ -1,35 +1,39 @@
 <div class="wallet" xmlns="http://www.w3.org/1999/html">
 
-    <h1>Wallet</h1>
-    
+    <br/><br/>
+    <form action="/deposit" method="GET">
+      <input class="walletButton" type="submit" value="make a deposit"/>
+    </form>
+
+    <form action="/withdraw" method="GET">
+      <input class="walletButton" type="submit" value="make a withdrawal"/>
+    </form>
+
+    <br/>
+    <br/>
+
     <div>
-      <p><b>Status:</b> <span class="status"></span></p>
+      <!-- <p><b>Status:</b> <span class="status"></span></p> -->
       <div class="balance">
-        <h2>Balance</h2>
-        <div class="currencies"></div>
+        <h2>balance</h2>
+        <table class="currencies CSSTable">
+        </table>
       </div>
 
     </div>
 
     <div class="ledger">
-      <h2>Recent Transactions</h2>
-      <div class="transactions">
-        <div class="transaction">
-          <span class="status"></span>
-          <span class="sendTo"></span>
-          <span class="currency"></span>
-          <span class="amount"></span>
-        </div>
-      </div>
+      <h2>transactions</h2>
+      <table class="transactions CSSTable">
+        <tr class="transaction">
+          <td class="date"></td>
+          <td class="type"></td>
+          <td class="status"></td>
+          <td class="sendTo"></td>
+          <td class="currency"></td>
+          <td class="amount"></td>
+        </tr>
+      </table>
     </div>
-
-    <br/><br/>
-    <form action="/deposit" method="GET">
-      <input type="submit" value="Make a deposit"/>
-    </form>
-
-    <form action="/withdraw" method="GET">
-      <input type="submit" value="Make a withdrawal"/>
-    </form>
 
 </div>
