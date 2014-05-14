@@ -1,6 +1,6 @@
 {
   "name": "safewallet",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The world's first open-source crypto-currency bank.",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,7 @@
     "debug": "*",
     "html-lang": "*",
     "node-uuid": "~1.4.1",
+    "dateformat": "*",
     "jugglingdb-nano": "https://github.com/jugglingdb/nano-adapter/tarball/master",
     "optimist": "*",
     "resource": "0.5.x",

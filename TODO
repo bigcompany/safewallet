@@ -2,7 +2,6 @@
 - expose user, wallet, and ledger resources as RESTful API ( using resource-rest )
 - move session assignment / login code into a separate module
 - add build process to automatically minify and compress all client-side assets
-- log the associated IP address for all account actions such as password resets and withdrawals ( in database, not just log files )
 - add links to available block explorers on deposit page per address
 - add QR codes on deposit page per address
 - switch console.log statements to use `debug` npm package
