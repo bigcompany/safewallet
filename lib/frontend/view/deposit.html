@@ -1,15 +1,12 @@
 <div class="wallet" xmlns="http://www.w3.org/1999/html">
 
-    <p>
-        To make a deposit into your safe wallet send coins to the any of following receiving addresses.
+    <p class="makeDeposit">
+      To make a deposit into your safe wallet send coins to the any of following receiving addresses.
     </p>
 
-    <p>
-        <i>If this is your first deposit you will need to generate a new receiving address.</i>
-    </p>
-
+    <form action="/generateAddress" method="post">
     <div class="receiving">
-      <p><b>Receiving Addresses</b></p>
+      <p><b>receiving addresses</b></p>
       <div class="addresses">
         <div class="address">
           <span class="type"></span>  
@@ -17,5 +14,6 @@
         </div>
       </div>
     </div>
+    </form>
 
 </div>

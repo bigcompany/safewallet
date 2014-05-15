@@ -33,14 +33,25 @@ ul.home {
   font-size:32px;
 }
 
+.wallet .receiving .address input {
+  padding: 16px;
+  margin: 16px;
+  text-align: center;
+  width: 40%;
+  font-size: 36px;
+}
 
 .deposit {
   color: blue !important;
   text-decoration: underline !important;
 }
 
+.alpaca-form-button-submit {
+  font-size:36px;
+  cursor: pointer;
+}
 
-a:link { text-decoration:none;  color: #000000;}
+a:link { color: #000000;}
 a:visited { color: #000000;}
 a:hover { text-decoration:underline;}
 a:active { color: #000000;}
