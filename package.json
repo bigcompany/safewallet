@@ -34,6 +34,7 @@
     "resource-http": "https://github.com/bigcompany/resource-http/tarball/master",
     "resource-user": "https://github.com/bigcompany/resource-user/tarball/master",
     "resource-wallet": "https://github.com/bigcompany/resource-wallet/tarball/master",
+    "request": "*",
     "view": "0.5.x",
     "bignumber.js": "~1.3.0"
   }
