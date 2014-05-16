@@ -4,4 +4,6 @@
 - add build process to automatically minify and compress all client-side assets
 - add links to available block explorers on deposit page per address
 - add QR codes on deposit page per address
-- switch console.log statements to use `debug` npm package
+- better UX update for couldn't withdraw [Error: Insufficient funds]
+- fix misreported ip address
+- add streaming tail support for logs
