@@ -69,6 +69,7 @@ a.active {
   font-size:28px;
   float:left;
   padding:5px;
+  margin:5px;
 }
 
 .generateButton {
