@@ -45,29 +45,15 @@ tap.test("make a mock deposit into the wallet", function (t) {
   });
 });
 
-tap.test("attempt withdrawal from the account", function (t) {
-  agent
-    .post('/withdraw')
-    .set('cookie', cookie)
-    .send({ currency: 'bitcoin', amount: "0.001" })
-    .expect(301)
-    .end(function(err, res) {
-      t.equal(res.text, "Moved Permanently. Redirecting to /wallet");
-      t.equal(null, err);
-      t.end();
-  });
-});
-
 tap.test("check that a ledger entry has been made", function (t) {
   ledger.find({ owner: username }, function(err, results) {
     var entry = results.pop();
-    t.equal(entry.amount, "0.001");
+    t.equal(entry.amount, "1.00");
     t.equal(entry.currency, "bitcoin");
-    t.equal(entry.status, "pending");
+    t.equal(entry.status, "processed");
     t.end();
   })
 });
-
 
 tap.test("shut down the server", function (t) {
   app.server.close(function(){
