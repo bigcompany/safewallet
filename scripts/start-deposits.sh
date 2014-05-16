@@ -3,6 +3,8 @@ if [ -z "$1" ]
   exit 0
 fi
 
+export DEBUG="alert"
+
 echo "starting $1 deposits"
 
 mon -d "node ../bin/deposits --currency $1" --log "../logs/deposits-$1.log" --attempts 3 --on-restart "./alerts/deposits/restarted --currency $1" --on-error "./alerts/deposits/crashed --currency $1"
