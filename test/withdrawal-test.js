@@ -3,6 +3,9 @@ var tap = require("tap"),
     wallet = require('../lib/resources/wallet'),
     ledger = require('../lib/resources/ledger').ledger,
     username = "marak",
+    transactionID = null,
+    receivingAddress = null,
+    sendingAddress = "1234567890",
     app = null,
     agent = null,
     id = null,
@@ -20,19 +23,6 @@ tap.test("start safewallet server", function (t) {
   });
 });
 
-tap.test("try to log in", function (t) {
-  request(app)
-    .post('/login')
-    .send({ name: username, password: "foo" })
-    .expect(301)
-    .end(function(err, res) {
-      console.log(err, res.text)
-      cookie = res.headers['set-cookie'];
-      t.equal(null, err);
-      t.end();
-  });
-});
-
 tap.test("make a mock deposit into the wallet", function (t) {
   wallet.find({ owner: username }, function (err, _wallet) {
     if (err) {
@@ -45,25 +35,26 @@ tap.test("make a mock deposit into the wallet", function (t) {
   });
 });
 
-tap.test("attempt withdrawal from the account", function (t) {
-  agent
-    .post('/withdraw')
-    .set('cookie', cookie)
-    .send({ currency: 'bitcoin', amount: "0.001" })
-    .expect(301)
-    .end(function(err, res) {
-      t.equal(res.text, "Moved Permanently. Redirecting to /wallet");
+tap.test("make a mock withdrawal from the wallet", function (t) {
+  wallet.find({ owner: username }, function (err, _wallet) {
+    if (err) {
+      throw err;
+    }
+    wallet.withdraw({ id: _wallet[0].id, currency:  'bitcoin', amount: '0.001', address: sendingAddress }, function (err, result){
       t.equal(null, err);
+      transactionID = result.transactionID;
       t.end();
+    });
   });
 });
 
 tap.test("check that a ledger entry has been made", function (t) {
-  ledger.find({ owner: username }, function(err, results) {
+  ledger.find({ transactionID: transactionID }, function(err, results) {
     var entry = results.pop();
     t.equal(entry.amount, "0.001");
     t.equal(entry.currency, "bitcoin");
     t.equal(entry.status, "pending");
+    t.equal(entry.address, sendingAddress);
     t.end();
   })
 });
