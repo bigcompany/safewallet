@@ -1,6 +1,6 @@
 # Creating a secure offline wallet 
 
-This document details how we make a 99.9999% safe solution for creating offline wallets. The goal is to have a fail-proof solution to secure offline crypto-assets.
+This document details how we make a 99.999% safe solution for creating offline wallets. The goal is to have a fail-proof solution to secure offline crypto-assets.
 
 ## Hardware Requirements
 

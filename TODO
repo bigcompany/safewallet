@@ -1,9 +1,11 @@
 - add support for additional currencies ( LTC, etc.. )
 - expose user, wallet, and ledger resources as RESTful API ( using resource-rest )
+
 - move session assignment / login code into a separate module
+
+- add simple email alert to deposits crashes
+- better UX update for couldn't withdraw [Error: Insufficient funds]
+
 - add build process to automatically minify and compress all client-side assets
 - add links to available block explorers on deposit page per address
 - add QR codes on deposit page per address
-- better UX update for couldn't withdraw [Error: Insufficient funds]
-- fix misreported ip address
-- add streaming tail support for logs
