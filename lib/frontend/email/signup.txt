@@ -1,0 +1,11 @@
+Welcome!
+
+This is a confirmation email indicating you have signed up for a Safewallet.org account
+
+Your new account name: {{name}}
+
+To sign in to your new account visit: http://safewallet.org/login
+
+If you need to reset your password visit: http://safewallet.org/reset
+
+The Safewallet Team
