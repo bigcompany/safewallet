@@ -33,6 +33,30 @@ ul.home {
   font-size:32px;
 }
 
+.wallet .receiving .address {
+  border: solid;
+  border-width: 1px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.depositCurrency {
+  position: relative;
+}
+
+.depositQR {
+  position: relative;
+  float: none;
+}
+
+.depositAddress {
+  position: relative;
+}
+
+.qrCanvas {
+  display: none;
+}
+
 .wallet .receiving .address input {
   padding: 16px;
   margin: 16px;
