@@ -59,7 +59,6 @@ tap.test("check that a ledger entry has been made", function (t) {
   })
 });
 
-
 tap.test("shut down the server", function (t) {
   app.server.close(function(){
     t.end();

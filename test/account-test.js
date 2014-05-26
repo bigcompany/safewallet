@@ -1,6 +1,8 @@
 var tap = require("tap"), 
     request = require('supertest'),
     app = null,
+    wallet = require('../lib/resources/wallet'),
+    user = require('../lib/resources/user'),
     username = "marak",
     agent = null,
     id = null,
@@ -41,10 +43,23 @@ tap.test("try to get /account page while logged in ( with session from signup )"
   });
 });
 
-tap.test("try to get /wallet page while logged in ( with session from signup )", function (t) {
+tap.test("try to update password", function (t) {
   agent
-    .get('/wallet')
+    .post('/account')
     .set('cookie', cookie)
+    .send({ password: "tar", confirmPassword: "tar" })
+    .expect(200)
+    .end(function(err, res) {
+      t.equal(null, err);
+      t.end();
+  });
+});
+
+tap.test("try to update account info", function (t) {
+  agent
+    .post('/account')
+    .set('cookie', cookie)
+    .send({ email: "foo@bar.com" })
     .expect(200)
     .end(function(err, res) {
       t.equal(null, err);
@@ -63,73 +78,39 @@ tap.test("logout of the current session", function (t) {
   });
 });
 
-tap.test("try to signup another user with the same name", function (t) {
-  agent
-    .post('/signup')
-    .send({ name: username, password: "bar", confirmPassword: "bar" })
-    .expect(200)
-    .end(function(err, res) {
-      t.equal(null, err);
-      t.equal(res.text, 'user name is unavailable.');
-      t.end();
-  });
-});
-
-tap.test("try to get /account page with expired cookie", function (t) {
-  agent
-    .get('/account')
-    .set('cookie', cookie)
-    .expect(301)
-    .end(function(err, res) {
-      t.equal(null, err);
-      t.end();
-  });
-});
-
-tap.test("try to get /wallet page with expired cookie", function (t) {
-  agent
-    .get('/wallet')
-    .set('cookie', cookie)
-    .expect(301)
-    .end(function(err, res) {
-      t.equal(null, err);
-      t.end();
-  });
-});
-
-tap.test("try to log in with the first user - wrong password", function (t) {
+tap.test("try to log in with new password", function (t) {
   agent
     .post('/login')
-    .send({ name: username, password: "1234" })
+    .send({ name: username, password: "tar" })
     .expect(200)
-    .end(function(err, res) {
-      t.equal(res.text, "login failed. try again.");
-      t.equal(null, err);
-      t.end();
-  });
-});
-
-tap.test("try to log in with the first user - no password", function (t) {
-  agent
-    .post('/login')
-    .send({ name: username, password: "" })
-    .expect(200)
-    .end(function(err, res) {
-      t.equal(null, err);
-      t.equal(res.text, "login failed. try again.");
-      t.end();
-  });
-});
-
-tap.test("try to log in with the first user - correct password", function (t) {
-  agent
-    .post('/login')
-    .send({ name: username, password: "foo" })
-    .expect(301)
     .end(function(err, res) {
       cookie = res.headers['set-cookie'];
       t.equal(null, err);
       t.end();
+  });
+});
+
+tap.test("check that user has been updated", function (t) {
+  user.find({ name: username }, function(err, _user){
+    console.log(_user[0]);
+    t.equal("foo@bar.com", _user[0].email);
+    t.end();
+  });
+});
+
+tap.test("clean up - destroy test user", function (t) {
+  user.find({ name: username }, function(err, _user){
+   _user[0].destroy(function(){
+     t.end();
+   });
+  });
+});
+
+tap.test("clean up - destroy test wallet", function (t) {
+  wallet.find({ owner: username }, function(err, _wallet){
+   _wallet[0].destroy(function(){
+     t.end();
+   });
   });
 });
 
