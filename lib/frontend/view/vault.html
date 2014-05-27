@@ -1,5 +1,235 @@
 <div class="value" xmlns="http://www.w3.org/1999/html">
-  <table class="balances CSSTable">
-  </table>
+
+  <script src="/js/highcharts.js"></script>
+  <script type="text/javascript">
+  $(function () {
+
+    var plots = boot.data;
+
+    // get starting time
+    var start = new Date(plots[0].ctime);
+
+    // get ending time
+    var end = new Date(plots[plots.length -1].ctime);
+
+    var range = end.getTime() - start.getTime();
+
+    // get point interval time
+    var interval = (range) / (plots.length);
+
+    var dollars = {
+      type: "area",
+      pointInterval: interval,
+      pointStart: Date.UTC(start.getUTCFullYear(), start.getUTCMonth(), start.getUTCDate()),
+      name: "Dollars",
+      data: []
+    };
+
+    var bitcoins = {
+      pointInterval: interval,
+      pointStart: Date.UTC(start.getUTCFullYear(), start.getUTCMonth(), start.getUTCDate()),
+      name: "Bitcoins",
+      data: []
+    };
+
+    var peercoins = {
+      pointInterval: interval,
+      pointStart: Date.UTC(start.getUTCFullYear(), start.getUTCMonth(), start.getUTCDate()),
+      name: "Peercoins",
+      data: []
+    };
+
+    var dogecoins = {
+      pointInterval: interval,
+      pointStart: Date.UTC(start.getUTCFullYear(), start.getUTCMonth(), start.getUTCDate()),
+      name: "Dogecoins",
+      data: []
+    };
+
+    plots.forEach(function(i, item){
+      dollars.data.push(Math.round(new Number(i.dollars)));
+      bitcoins.data.push(Math.round(new Number(i.bitcoin)));
+      peercoins.data.push(Math.round(new Number(i.peercoin)));
+      dogecoins.data.push(Math.round(new Number(i.dogecoin)));
+    });
+
+    $('#dollarsGraph').highcharts({
+        title: {
+            text: 'Safewallet Vault in Dollars',
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'Source: Safewallet.org',
+            x: -20
+        },
+        xAxis: {
+          type: 'datetime',
+          minRange: range
+        },
+        yAxis: {
+            title: {
+                text: 'Amount'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valuePrefix: '$'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        plotOptions: {
+                       area: {
+                           fillColor: {
+                               linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1},
+                               stops: [
+                                   [0, Highcharts.getOptions().colors[0]],
+                                   [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                               ]
+                           },
+                           marker: {
+                               radius: 2
+                           },
+                           lineWidth: 1,
+                           states: {
+                               hover: {
+                                   lineWidth: 1
+                               }
+                           },
+                           threshold: null
+                       }
+                   },
+        series: [dollars]
+    });
+
+    /*
+    $('#bitcoinGraph').highcharts({
+        title: {
+            text: 'Safewallet Bitcoin Deposits',
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'Source: Safewallet.org',
+            x: -20
+        },
+        xAxis: {
+          type: 'datetime',
+          minRange: range
+        },
+        yAxis: {
+            title: {
+                text: 'Amount'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: ''
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [bitcoins]
+    });
+
+    $('#peercoinGraph').highcharts({
+        title: {
+            text: 'Safewallet Peercoin Deposits',
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'Source: Safewallet.org',
+            x: -20
+        },
+        xAxis: {
+          type: 'datetime',
+          minRange: range
+        },
+        yAxis: {
+            title: {
+                text: 'Amount'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: ''
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [peercoins]
+    });
+    
+    
+    $('#dogecoinGraph').highcharts({
+        title: {
+            text: 'Safewallet Dogecoin Deposits',
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'Source: Safewallet.org',
+            x: -20
+        },
+        xAxis: {
+          type: 'datetime',
+          minRange: range
+        },
+        yAxis: {
+            title: {
+                text: 'Amount'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: ''
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [dogecoins]
+    });
+    */
+
+  });
+
+  </script>
+
+  <table class="balances CSSTable"></table>
+
   <p><i>assets currently held in Safewallet</i></p>
+  <div id="dollarsGraph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+  <!--
+    <div id="bitcoinGraph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <div id="peercoinGraph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <div id="dogecoinGraph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+  -->
+
 </div>
