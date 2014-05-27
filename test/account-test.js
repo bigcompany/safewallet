@@ -73,6 +73,7 @@ tap.test("logout of the current session", function (t) {
     .set('cookie', cookie)
     .expect(301)
     .end(function(err, res) {
+      cookie = null;
       t.equal(null, err);
       t.end();
   });
@@ -82,9 +83,21 @@ tap.test("try to log in with new password", function (t) {
   agent
     .post('/login')
     .send({ name: username, password: "tar" })
+    .expect(301)
+    .end(function(err, res) {
+      t.equal(res.text, "Moved Permanently. Redirecting to /wallet");
+      cookie = res.headers['set-cookie'];
+      t.equal(null, err);
+      t.end();
+  });
+});
+
+tap.test("try to get /account page while logged in with new password", function (t) {
+  agent
+    .get('/account')
+    .set('cookie', cookie)
     .expect(200)
     .end(function(err, res) {
-      cookie = res.headers['set-cookie'];
       t.equal(null, err);
       t.end();
   });

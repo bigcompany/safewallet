@@ -1,5 +1,6 @@
 var tap = require("tap"), 
     request = require('supertest'),
+    user = require('../lib/resources/user'),
     wallet = require('../lib/resources/wallet'),
     ledger = require('../lib/resources/ledger').ledger,
     username = "marak",
@@ -19,6 +20,19 @@ tap.test("start safewallet server", function (t) {
     agent = request.agent(app);
     
     t.end();
+  });
+});
+
+tap.test("signup with a new user", function (t) {
+  request(app)
+    .post('/signup')
+    .send({ name: username, password: "foo", confirmPassword: "foo" })
+    .expect(301)
+    .end(function(err, res){
+      cookie = res.headers['set-cookie'];
+      t.equal(null, err);
+      t.equal(res.text, "Moved Permanently. Redirecting to /wallet");
+      t.end();
   });
 });
 
@@ -45,6 +59,22 @@ tap.test("check that a ledger entry has been made", function (t) {
     t.equal(entry.address, receivingAddress);
     t.end();
   })
+});
+
+tap.test("clean up - destroy test user", function (t) {
+  user.find({ name: username }, function(err, _user){
+   _user[0].destroy(function(){
+     t.end();
+   });
+  });
+});
+
+tap.test("clean up - destroy test wallet", function (t) {
+  wallet.find({ owner: username }, function(err, _wallet){
+   _wallet[0].destroy(function(){
+     t.end();
+   });
+  });
 });
 
 tap.test("shut down the server", function (t) {
