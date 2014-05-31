@@ -1,0 +1,30 @@
+<div class="admin" xmlns="http://www.w3.org/1999/html">
+    <p>
+      admin panel
+    </p>
+    <div id="transaction">
+      <div class="entry"></div>
+      <!-- ><span class="id"></span> -->
+      <form action="" method="POST">
+        <select id="status" name="status">
+        </select>
+        <br/>
+        <input type="hidden" name="transactionID" id="transactionID" value="1-2-3-4"/>
+        <input type="submit" name="update" value="Update transaction"/>
+      </form>
+    </div>
+    <div class="ledger">
+      <h2>transactions</h2>
+      <table class="transactions CSSTable">
+        <tr class="transaction">
+          <td class="date"></td>
+          <td class="owner"></td>
+          <td class="type"></td>
+          <td class="status"></td>
+          <td class="currency"></td>
+          <td class="amount"></td>
+          <td class="address"></td>
+        </tr>
+      </table>
+    </div>
+</div>
