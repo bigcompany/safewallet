@@ -1,0 +1,13 @@
+A new deposit has been credited to your Safewallet! <br/><br/>
+
+Way to save! Remember, it's always better to save then spend.<br/><br/>
+
+Account: {{name}}<br/>
+Currency: {{currency}}<br/>
+Amount: {{amount}}<br/>
+
+http://safewallet.org/wallet <br/><br/>
+
+If you wish to discontinue these email alerts you can visit http://safewallet.org/account to update your alert settings. <br/><br/>
+
+The Safewallet Team
