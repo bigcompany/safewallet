@@ -27,7 +27,7 @@ tap.test("start safewallet server", function (t) {
 tap.test("signup with a new user", function (t) {
   request(app)
     .post('/signup')
-    .send({ name: username, password: "foo", confirmPassword: "foo" })
+    .send({ name: username, email: "dev-safewallet@marak.com", password: "foo", confirmPassword: "foo" })
     .expect(301)
     .end(function(err, res){
       cookie = res.headers['set-cookie'];
