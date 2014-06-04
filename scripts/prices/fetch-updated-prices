@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+var resource = require('resource'),
+    config = require('../../config'),
+    debug = require('debug')('alert'),
+    uuid = require('node-uuid'),
+    view = require('view'),
+    prices = require('../../lib/resources/prices').prices;
+
+prices.persist(config.datasource);
+
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
+debug.log('fetching new prices and storing them to the database');
+prices.fetch(function(err, prices){
+  if (err) {
+    throw err;
+  }
+  debug.log('fetched and saved new prices', prices);
+});
