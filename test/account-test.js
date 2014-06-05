@@ -105,7 +105,6 @@ tap.test("try to get /account page while logged in with new password", function 
 
 tap.test("check that user has been updated", function (t) {
   user.find({ name: username }, function(err, _user){
-    console.log(_user[0]);
     t.equal("foo@bar.com", _user[0].email);
     t.end();
   });

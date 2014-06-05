@@ -1,6 +1,6 @@
 var tap = require("tap"), 
     request = require('supertest'),
-    user = require('../lib/resources/user'),
+    user = require('../lib/resources/user')
     wallet = require('../lib/resources/wallet'),
     ledger = require('../lib/resources/ledger').ledger,
     username = "marak",
@@ -12,6 +12,8 @@ var tap = require("tap"),
     agent = null,
     id = null,
     cookie = null;
+
+require('./mock/email');
 
 tap.test("start safewallet server", function (t) {
   var server = require('../lib/frontend');
@@ -87,7 +89,7 @@ tap.test("attempt to update ledger entry status to blocked", function (t) {
     t.equal(null, err);
     // TODO: fix issue here with test suite running cleanup before hooks execute
     process.nextTick(function(){ // ledger updates
-      process.nextTick(function(){ // before ledget update validate entry
+      process.nextTick(function(){ // before ledger update validate entry
         process.nextTick(function(){ // update wallet on blocked transaction
           t.end();
         });
@@ -115,7 +117,6 @@ tap.test("check that the wallet balance has been updated", function (t) {
   });
 });
 
-// check that wallet balance is correct
 tap.test("clean up - destroy test user", function (t) {
   user.find({ name: username }, function(err, _user){
    _user[0].destroy(function(){
