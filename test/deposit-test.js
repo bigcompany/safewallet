@@ -59,6 +59,9 @@ tap.test("check that a ledger entry has been made", function (t) {
     t.equal(entry.currency, "bitcoin");
     t.equal(entry.status, "processed");
     t.equal(entry.address, receivingAddress);
+    t.type(entry.price, "string");
+    // TODO: mock prices API and check mocked returned price value
+    // t.equal(entry.price, "2.00");
     t.end();
   })
 });
