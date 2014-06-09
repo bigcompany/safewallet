@@ -88,13 +88,9 @@ tap.test("attempt to update ledger entry status to blocked", function (t) {
   ledger.update(entry, function(err, results) {
     t.equal(null, err);
     // TODO: fix issue here with test suite running cleanup before hooks execute
-    process.nextTick(function(){ // ledger updates
-      process.nextTick(function(){ // before ledger update validate entry
-        process.nextTick(function(){ // update wallet on blocked transaction
-          t.end();
-        });
-      });
-    })
+    setTimeout(function(){
+      t.end();
+    }, 2000);
   })
 });
 
