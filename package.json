@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "bitcoin": "*",
+    "colors": "*",
     "debug": "*",
     "html-lang": "*",
     "node-uuid": "~1.4.1",
