@@ -16,7 +16,7 @@ You will need to purchase a new computer and printer in order to build this offl
 
 **Computer**
 
-The make and model of the computer can be almost any new computer running a modern operating system. [Arch Linux](https://www.archlinux.org/) is recommended although Windows 8 or Mac OS can also be suitable. You should make sure the machine is a clean install of the operating system with no additional programs installed.
+The make and model of the computer can be almost any new computer running a modern operating system. [Arch Linux](https://www.archlinux.org/) is recommended although Windows 8 or Mac OS can also be suitable. If you download an image, make sure to verify release signatures. You should make sure the machine is a clean install of the operating system with no additional programs installed.
 
 Once the computer is setup you will now take it permanently offline. Depending on the operating system, you will want to disable all external i/o devices such as: wifi, bluetooth and infrared. In most computers you can disable this directly in the BIOS or through the operating systems control panel. 
 
