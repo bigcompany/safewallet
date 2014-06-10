@@ -156,5 +156,6 @@ tap.test("clean up - destroy test wallet", function (t) {
 tap.test("shut down the server", function (t) {
   app.server.close(function(){
     t.end();
+    process.exit(0);
   });
 });

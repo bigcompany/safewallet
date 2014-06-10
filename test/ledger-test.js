@@ -91,7 +91,7 @@ tap.test("attempt to update ledger entry status to blocked", function (t) {
     setTimeout(function(){
       t.end();
     }, 2000);
-  })
+  });
 });
 
 tap.test("check that a ledger entry has been made for the refund", function (t) {
@@ -132,5 +132,6 @@ tap.test("clean up - destroy test wallet", function (t) {
 tap.test("shut down the server", function (t) {
   app.server.close(function(){
     t.end();
+    process.exit(0);
   });
 });

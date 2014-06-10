@@ -71,7 +71,6 @@ tap.test("check that a ledger entry has been made", function (t) {
     t.type(entry.price, "object");
     t.type(entry.price.total, "string");
     t.type(entry.price.currency, "string");
-
     // TODO: mock prices API and check mocked returned price value
     // t.equal(entry.price, "2.00");
     t.equal(entry.address, sendingAddress);
@@ -98,5 +97,6 @@ tap.test("clean up - destroy test wallet", function (t) {
 tap.test("shut down the server", function (t) {
   app.server.close(function(){
     t.end();
+    process.exit(0);
   });
 });
