@@ -1,7 +1,11 @@
+before_script:
+  - curl -X PUT localhost:5984/resource
+
 language: node_js
 node_js:
   - 0.11
-
+services:
+  - couchdb
 notifications:
   email:
     - travis@marak.com
