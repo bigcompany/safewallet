@@ -31,3 +31,19 @@ tap.test("attempt to get last price from datasource", function (t) {
     t.end();
   });
 });
+
+tap.test("attempt to calculate a price", function (t) {
+  prices.calculate({ currency: 'bitcoin', amount: '100' }, function (err, result){
+    t.equal(null, err);
+    t.type(result.currency, "string");
+    t.type(result.total, "string");
+    t.end();
+  });
+});
+
+tap.test("attempt to calculate a price with invalid amount", function (t) {
+  prices.calculate({ currency: 'bitcoin', amount: 'abc' }, function (err, result){
+    t.type(err, "object");
+    t.end();
+  });
+});
