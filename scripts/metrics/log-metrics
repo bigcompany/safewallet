@@ -20,6 +20,7 @@ vault.getBalance(function(err, balance){
     debug('creating metrics');
     metrics.create({
       bitcoin: balance.totals.bitcoin.amount,
+      litecoin: balance.totals.litecoin.amount,
       peercoin: balance.totals.peercoin.amount,
       dogecoin: balance.totals.dogecoin.amount,
       dollars: balance.total,
