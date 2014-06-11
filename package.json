@@ -30,7 +30,7 @@
     "dateformat": "*",
     "jugglingdb-nano": "https://github.com/jugglingdb/nano-adapter/tarball/master",
     "optimist": "*",
-    "resource": "0.5.x",
+    "resource": "https://github.com/bigcompany/resource/tarball/master",
     "resource-email": "https://github.com/bigcompany/resource-email/tarball/master",
     "resource-http": "https://github.com/bigcompany/resource-http/tarball/master",
     "resource-user": "https://github.com/bigcompany/resource-user/tarball/master",
