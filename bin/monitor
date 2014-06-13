@@ -1,0 +1,3 @@
+#!/usr/bin/env node
+var server = require('../lib/monitoring/server');
+server.start(function(err, app){});
