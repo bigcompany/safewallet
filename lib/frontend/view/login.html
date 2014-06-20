@@ -1,14 +1,37 @@
-<div class="registration" xmlns="http://www.w3.org/1999/html">
+    <section class="fieldset">
+    <div class="row">
+      <div class="large-12">
+      <div class="log-in-box">
+       <h1>SIGN IN TO SAFEWALLET</h1> 
+       <div class="form">
+       <div class="large-12">
+       <form action="/login" method="POST">
+       <div class="email">
+       <table width="100%" border="0">
+  <tr>
+    <td class="large-3">Account:</td>
+    <td ><input name="name" type="text" autofocus></td>
+  </tr>
+  <tr>
+    <td class="large-3">Password:</td>
+    <td ><input name="password" type="password"></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td class="align-right"><a href="/reset" title="Forget your password?">forgot password?</a></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td class="align-right"><span class="button"><input name="Submit" type="submit" class="image" value="Login Now"></span></td>
+  </tr>
+</table>
 
-    <p>
-        log in to an existing Safewallet
-    </p>
-
-    <div id="form"></div>
-    <div class="signup-info">
-        <div id="signup-info-fields"></div>
+       </div>
+     </form>
+     
+       </div>
+       </div><!--end form-->
+      </div> 
+      </div>
     </div>
-
-    <a href="/reset">Forgot password?</a>
-
-</div>
+    </section>

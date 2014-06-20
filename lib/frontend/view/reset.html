@@ -1,3 +1,32 @@
-To reset the password for your account please submit the account name here
-
-<div id="form"></div>
+<section class="fieldset">
+  <div class="row">
+    <div class="large-12">
+    <div class="log-in-box">
+     <h1>RESET PASSWORD</h1> 
+     <div class="form">
+     <div class="large-12">
+     <form action="/reset" method="POST">
+       <div class="email">
+         <table width="100%" border="0">
+          <tr>
+            <td class="large-3">Account:</td>
+            <td ><input name="name" type="text" autofocus></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td class="align-right"><a href="#" onclick="alert('Your account name was sent to your email when you first signed up for Safewallet.');" title="Forget your password?">forgot account name?</a></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td class="align-right"><span class="button"><input name="Submit" type="submit" class="image" value="Send Email"></span></td>
+          </tr>
+        </table>
+       </div>
+     </form>
+ 
+     </div>
+     </div><!--end form-->
+    </div> 
+    </div>
+  </div>
+</section>

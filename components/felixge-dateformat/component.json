@@ -1,0 +1,12 @@
+{
+  "name": "dateformat",
+  "repo": "felixge/dateformat",
+  "version": "1.0.7-1.2.3",
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

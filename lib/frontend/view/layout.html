@@ -1,25 +1,136 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-        <title>Safewallet.org</title>
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Safewallet | Welcome</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/build.js"></script>
 
-        <!-- jQuery + jQuery template support -->
-        <script type="text/javascript" src="./lib/jquery-latest.min.js"></script>
-        <script type="text/javascript" src="./lib/jquery.tmpl.js"></script>
+  </head>
+  <body>
+    
+    <header>
+      <div class="row">
+        <div class="large-6 columns">
+          <a href="/"><img src="img/safewallet-logo.png" alt="Safewalllet.org"></a>
+          <div class="row">
+      <div class="mobileNavWrapper">
+      <dl class="accordion" data-accordion>
+    <dd>
+      <a href="#panel1"><i class="fa fa-navicon"></i>&nbsp;&nbsp;Safewallet Menu</a>
+      <div id="panel1" class="content">
+          <ul class="off-canvas-list">
+          <li><a href="/account">ACCOUNT</a></li>
+          <li><a href="/wallet" class="active" >WALLET</a></li>
+          <li><a href="/deposit">DEPOSIT</a></li>
+          <li><a href="/withdraw">WITHDRAW</a></li>
+        </ul>
+      </div>
+    </dd>
+    </dl>
+      </div>
+      </div>
+        </div>
+        <div class="large-6 columns right-align profile">
+          <form action="/logout" method="GET">
+            <table border="0" class="right">
+            <tr>
+             <td class="profile-pic">
+               <a href="/account"><img src="img/no-image.png" alt="profile-pic"></a>
+              </td>
+             <td><h4 style="min-width: 88px;">Welcome,<br><span class="blue username">marak@safewallet.org</span></h4><input class="log-out right" name="logout" type="submit"></td>
+            </tr>
+            </table>
+          </form>
+        </div>
+        <div class="large-6 loginBar columns right-align">
+          <a tabindex="1" href="/login" class="small button login">ACCOUNT LOGIN</a><a href="/signup" class="secondary button small signup">SIGN UP NOW!</a>
+        </div>
+      </div>
+      </header>
+    <div id="main">
+    </div>
 
-        <!-- Alpaca -->
-        <script type="text/javascript" src="./components/alpaca/alpaca.js"></script>
-        <link type="text/css" href="./css/alpaca.css" rel="stylesheet" />
-        <link type="text/css" href="./css/styles.css" rel="stylesheet" />
+    <section class="copyrights">
 
-        <link type="text/css" href="./css/blitzer/jquery-ui.css" rel="stylesheet" />
+      <div class="row">
+      <div class="large-6 columns">
+        <p class="arial size12 blue">Copyright © 2014 Safewallet. All rights reserved.</p>
+      </div>
+      <div class="large-6 columns align-right">
+        <img src="img/seals.png" alt="trust-seals"/>
+      </div>
+      </div>
 
-    </head>
-    <body>
-      <a class="githubBadge" href="https://github.com/bigcompany/safewallet"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
-        <div class="nav"><a href="/account">account</a> | <a href="/wallet">wallet</a> | <a href="/deposit">deposit</a> | <a href="/withdraw">withdraw</a> | <a class="loginlogout" href="/logout">logout</a></div>
-        <hr/>
-        <div id="main"></div>
-    </body>
+    </section>
+
+    <footer class="footer">
+
+      <div class="row">
+      <div class="large-3 columns">
+        <h4>ABOUT SAFEWALLET</h4>
+        <ul class="no-bullets arial size12">
+        <li><a href="">Vision and Mission</a></li>
+        <li><a href="">About Us</a></li>
+        <li><a href="">Careers</a></li>
+        <li><a href="">Customer Testimonials</a></li>
+        <li><a href="">Merchant Testimonials</a></li>
+        <li><a href="">Media</a></li>
+        </ul>
+      </div>
+      <div class="large-3 columns">
+        <h4>FEATURES</h4>
+        <ul class="no-bullets arial size12">
+        <li><a href="">How Safewallet Works</a></li>
+        <li><a href="">Safewallet service</a></li>
+        <li><a href="">Add Funds and Withdraw</a></li>
+        <li><a href="">Pay and Get Paid</a></li>
+        <li><a href="">Send Funds</a></li>
+        </ul>
+      </div>
+      <div class="large-3 columns">
+        <h4>LEGAL AGREEMENTS</h4>
+        <ul class="no-bullets arial size12">
+        <li><a href="">Terms & Conditions</a></li>
+        <li><a href="">Online Privacy Policy</a></li>
+        <li><a href="">Infringement Policy</a></li>
+        <li><a href="">Formal Complaint</a></li>
+        </ul>
+      </div>
+      <div class="large-3 columns">
+        <h4>SECURITY</h4>
+        <ul class="no-bullets arial size12">
+        <li><a href="">Security Center</a></li>
+        <li><a href="">Fraud Prevention</a></li>
+        <li><a href="">Buyer Protection</a></li>
+        <li><a href="">Merchant Protection</a></li>
+        </ul>
+      </div>
+      <div class="large-3 columns">
+        <h4>SUPPORT</h4>
+        <ul class="no-bullets arial size12">
+          <li><a href="">FAQs</a></li>
+          <li><a href="">Fees</a></li>
+          <li><a href="">Featured Merchants</a></li>
+          <li><a href="">Contact us</a></li>
+          <li><a href="http://github.com/bigcompany/safewallet">Github</a></li>
+        </ul>
+      </div>
+      </div>
+
+    </footer>
+    
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+    
+  </body>
 </html>

@@ -1,34 +1,42 @@
-<div class="wallet" xmlns="http://www.w3.org/1999/html">
-    <!--[if ie]><script type="text/javascript" src="/vendors/excanvas/excanvas.js"></script><![endif]-->
-    <script src="/js/qrcode.min.js"></script>
-    <script>
-      var qrcodedraw = new qrcodelib.qrcodedraw();
-      function drawQrCode(currency, address){
-        qrcodedraw.draw(document.getElementById(currency + 'Canvas'), address, function(error,canvas){
-          if(error){
-             return console.log('Error =( ',error);
-          }
-          $('.qrCanvas', '.' + currency).show();
-          $('.depositQR', '.' + currency).remove();
-        });
-      };
-    </script>
-    <div id="test"></div>
-
-    <p class="makeDeposit">
-      To make a deposit into your safe wallet send coins to the any of following receiving addresses.
-    </p>
-
-    <form action="/generateAddress" method="post">
-    <div class="receiving">
-      <p><b>receiving addresses</b></p>
-      <div class="addresses">
-        <div class="address">
-          <span class="type"></span>
-          <span class="publicKey"></span>
-        </div>
-      </div>
-    </div>
-    </form>
-
+<section class="navigation">
+<div class="row">
+  <div class="large-8 columns">
+    <nav>
+    <ul>
+    <li><a href="/account">ACCOUNT</a></li>
+    <li><a href="/wallet" >WALLET</a></li>
+    <li><a href="/deposit" class="active" >DEPOSIT</a></li>
+    <li><a href="/withdraw">WITHDRAW</a></li>
+    </ul>
+    </nav>
+  </div>
 </div>
+</section>
+<article class="my-wallet deposit-money">
+<div class="row">
+  <div class="large-12 column">
+  <h1><img src="img/deposit.png" alt="deposit">&nbsp;Deposit Coins to your Account</h1>
+  <p class="blue size16">To make a deposit into your safe wallet send coins to the any of following receiving addresses.</p>
+  </div>
+</div>
+
+<div class="row coins-bar">
+</div>
+
+</article>
+
+
+
+<!--[if ie]><script type="text/javascript" src="/vendors/excanvas/excanvas.js"></script><![endif]-->
+<script src="/js/qrcode.min.js"></script>
+<script>
+  var qrcodedraw = new qrcodelib.qrcodedraw();
+  function drawQrCode(currency, address){
+    qrcodedraw.draw(document.getElementById(currency + 'Canvas'), address, function(error,canvas){
+      if(error){
+         return console.log('Error =( ',error);
+      }
+      $('.qrCanvas', '.' + currency).show();
+    });
+  };
+</script>

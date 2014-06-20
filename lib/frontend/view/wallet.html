@@ -1,37 +1,80 @@
-<div class="wallet" xmlns="http://www.w3.org/1999/html">
 
-      <form action="/deposit" method="GET">
-        <input class="walletButton" type="submit" value="make a deposit"/>
-      </form>
-
-      <form action="/withdraw" method="GET">
-        <input class="walletButton" type="submit" value="make a withdrawal"/>
-      </form>
-
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-
-      <!-- <p><b>Status:</b> <span class="status"></span></p> -->
-      <div class="balance">
-        <h2>balance</h2>
-        <table class="currencies CSSTable">
-        </table>
-      </div>
-
-    <div class="ledger">
-      <h2>transactions</h2>
-      <table class="transactions CSSTable">
-        <tr class="transaction">
-          <td class="date"></td>
-          <td class="type"></td>
-          <td class="status"></td>
-          <td class="currency"></td>
-          <td class="amount"></td>
-          <td class="address"></td>
-        </tr>
-      </table>
-    </div>
-
+<section class="navigation">
+<div class="row">
+  <div class="large-8 columns">
+    <nav>
+    <ul>
+    <li><a href="/account">ACCOUNT</a></li>
+    <li><a href="/wallet" class="active" >WALLET</a></li>
+    <li><a href="/deposit">DEPOSIT</a></li>
+    <li><a href="/withdraw">WITHDRAW</a></li>
+    </ul>
+    </nav>
+  </div>
+  <div class="large-4 columns">
+    <div class="balance align-right"><h4 class="blue inline-block">Total balance</h4>&nbsp;&nbsp;<select class="inline-block" id="balanceSelect"></select></div>
+  </div>   
+  
 </div>
+</section>
+<article class="my-wallet">
+<div class="row">
+  <div class="large-6 columns">
+  <h1><img src="img/my-wallet.png" alt="my wallet">&nbsp;My Wallet</h1>
+  </div>
+  <div class="large-6 columns">
+  <a href="/withdraw" class="button small radius right withdrawal">MAKE A WITHDRAWAL</a><a href="/deposit" class="button small radius right deposit" >MAKE A DEPOSIT</a>
+  </div>
+</div>
+
+<div class="row message-bar">
+
+  <div class="large-3 columns">
+    <h4 class="white normal"><span class="welcomeGreeting">Good Morning</span><strong class="username">Marak</strong></h4>
+  </div>
+  
+  <div class="large-3 columns">
+    <p class="align-center" class="clock"><img src="img/clock.png" alt="clock"/><span class="time">&nbsp;&nbsp;23:05:09  May  15,2014</span></p> 
+  </div>
+  
+  <div class="large-2 columns">
+    <p class="align-center" style="line-height:1.3;"><a href="/messages" class="messages"><img src="img/message.png" alt="clock">&nbsp;&nbsp;Messages&nbsp;&nbsp;<span class="message-box">23</span></a></p>  
+  </div>
+  
+  <div class="large-4 columns">
+    <p class="align-right"><span class="size18 bold">Balance</span>&nbsp;<span class="walletBalance">$21.90</span></p>
+  </div>
+</div>
+
+<div class="row coins-bar">
+  <h2 class="size18">Currencies</h2>
+</div>
+
+<div class="row transactions">
+  <div class="large-12 column">
+  <h1><img src="img/transactions.png" alt="my wallet">&nbsp;Transactions</h1>
+  </div>
+  <div class="large-12 column">
+  <table width="100%" border="0" class="align-center" cellspacing="0" cellpadding="0" class="ledger">
+    <tr>
+      <th scope="col"><i class="fa fa-clock-o"></i> Date</th>
+      <th scope="col">Type</th>
+      <th scope="col">Status</th>
+      <th scope="col">Currency</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Address</th>
+    </tr>
+  </table>
+  </div>
+</div>
+
+</article>
+    
+<script type="text/javascript">
+  var dateFormat = require('felixge-dateformat/index.js');
+   setInterval(function(){
+     var dt = dateFormat(new Date(), "ddd mmm dd, yyyy HH:mm:ss ");
+     $(".clock .time").html('&nbsp;&nbsp; &nbsp;' + dt);
+   }, 1000)
+
+</script>

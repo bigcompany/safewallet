@@ -1,24 +1,152 @@
-<div class="account" xmlns="http://www.w3.org/1999/html">
-
-    <p>
-        In order to better protect your wallet please provide as much information as possible.
-    </p>
-
-    <div id="form"></div>
-
-    <!--
-    <h2>Contact information</h2>
-    <div class="contact-info">
-        <div id="contact-info-fields"></div>
+  <form action="/account" method="POST" onSubmit="return validateForm();">
+    <section class="navigation">
+  <div class="row">
+    <div class="large-8 columns">
+      <nav>
+      <ul>
+      <li><a href="/account" class="active" >ACCOUNT</a></li>
+      <li><a href="/wallet" >WALLET</a></li>
+      <li><a href="/deposit" >DEPOSIT</a></li>
+      <li><a href="/withdraw" >WITHDRAW</a></li>
+      </ul>
+      </nav>
     </div>
-
-    <h2>Wallet Security</h2>
-    <p>
-      To ensure wallet safety please enable as many options as possible.
-    </p>
-    <div class="wallet-info">
-        <div id="wallet-info-fields"></div>
+    <div class="large-4 columns">
+      <div class="balance align-right">
+        <h4 class="blue inline-block">Total balance</h4>&nbsp;&nbsp;<select class="inline-block" id="balanceSelect"></select></div>
     </div>
-    -->
+  </div>
+  </section>
+  <article class="my-account">
+  <div class="row">
+    <div class="large-12 column">
+    <h1><img src="img/account-info.png" alt="account">&nbsp;Account Information</h1>
+    <p class="blue size16">In order to better protect your wallet please provide as much information as possible.</p>
+    </div>
+  </div>
 
-</div>
+  <div class="row">
+    <div class="large-6 columns">
+      <fieldset>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>Username:</td>
+            <td><input name="username" type="text" disabled="DISABLED"></td>
+          </tr>
+          <tr>
+            <td>Email Address:</td>
+            <td><input name="email" type="email"></td>
+          </tr>
+          <tr>
+            <td>Secondary Email Address:</td>
+            <td><input name="secondEmail" type="email"></td>
+          </tr>
+          <tr>
+            <td>Change Password:</td>
+            <td><input name="password" type="password"></td>
+          </tr>
+          <tr>
+            <td>Confirm Password Change:</td>
+            <td><input name="confirmPassword" type="password"></td>
+          </tr>
+        </table>
+      </fieldset>
+      <p class="size16">Do you want an email to confirm withdrawals:</p>
+      <input name="emailConfirmations" type="radio" value="true" checked>&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp; <input name="emailConfirmations" type="radio" value="false" >&nbsp;&nbsp;&nbsp;No 
+      <br><br>
+      <p class="size16">Do you want a telephone call to confirm withdrawals:</p>
+      <input name="phoneConfirmations" type="radio" value="true" checked>&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp; <input name="phoneConfirmations" type="radio" value="false" >&nbsp;&nbsp;&nbsp;No 
+    </div><!--End row coin bar-->
+    <div class="large-6 columns">
+
+    <fieldset>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+  <td>Organization:</td>
+  <td><input name="organization" type="text"></td>
+</tr>
+<tr>
+  <td>Home Phone:</td>
+  <td><input name="homePhone" type="text"></td>
+</tr>
+<tr>
+  <td>Work Phone:</td>
+  <td><input name="workPhone" type="text"></td>
+</tr>
+<tr>
+  <td>Cell phone:</td>
+  <td><input name="cellPhone" type="text"></td>
+</tr>
+<tr>
+  <td>Address:</td>
+  <td><input name="address1" type="text"></td>
+</tr>
+<tr>
+  <td>Address:</td>
+  <td><input name="address2" type="text"></td>
+</tr>
+<tr>
+  <td>City:</td>
+  <td><input name="city" type="text"></td>
+</tr>
+<tr>
+  <td>State:</td>
+  <td><input name="state" type="text"></td>
+</tr>
+<tr>
+  <td>Zip/Postal code:</td>
+  <td><input name="zipcode" type="text"></td>
+</tr>
+<tr>
+  <td>Country:</td>
+  <td><select name="country"><option value="United states">United states</option><option value="United kingdom">United Kindom</option></select></td>
+</tr>
+<tr>
+  <td colspan="2"><br>Emergency contact (name and number):<br><br> <input name="emergencyContact" type="text" style="width:100%; max-width:97%;"></td>
+ </tr>
+
+
+</table>
+
+    </fieldset>
+
+    <input name="update-details" type="submit" value="UPDATE DETAILS" class="button large radius right size18">
+
+    </div><!--End row coin bar-->
+
+
+  </div><!--End row forms-->
+
+  </article>
+  
+  
+  </form>
+
+<script type="text/javascript">
+  var mschema = require('mschema-mschema/index.js');
+
+  function validateForm () {
+    var isValid = true;
+    $('form input').each(function(i, item){
+      if (typeof schema.properties[item.name] !== 'undefined') {
+        var result = mschema.validate(item.value, schema.properties[item.name]);
+        if (!result.valid) {
+          isValid = false;
+          $(item).removeClass('success').removeClass('info').addClass('error');
+          //alert('invalid - ' + item.name + ' ' + item.value);
+        } else {
+          // $(item).removeClass('error').removeClass('info').addClass('success');
+        }
+      }
+    });
+    // alert(isValid);
+    // check that passwords match
+    if ($('form input[name="password"]').attr('value') !== $('form input[name="confirmPassword"]').attr('value')) {
+      $('form input[name="password"]').removeClass('error').removeClass('success').addClass('info');
+      $('form input[name="confirmPassword"]').removeClass('info').removeClass('success').addClass('error');
+      isValid = false;
+    }
+    return isValid;
+  };
+
+</script>

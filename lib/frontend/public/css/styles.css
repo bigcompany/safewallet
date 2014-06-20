@@ -55,6 +55,8 @@ ul.home {
 
 .qrCanvas {
   display: none;
+  height: 0px;
+  width: 0px;
 }
 
 .wallet .receiving .address input {
@@ -193,4 +195,8 @@ a.active {
 }
 .CSSTable tr:first-child td:last-child{
 	border-width:0px 0px 1px 1px;
+}
+
+.info {
+  background: #fff url(../img/info.png) 93% center no-repeat;
 }

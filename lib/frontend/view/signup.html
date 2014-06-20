@@ -1,9 +1,71 @@
-<div class="registration" xmlns="http://www.w3.org/1999/html">
+<section class="fieldset">
+<div class="row">
+  <div class="large-12">
+  <div class="log-in-box sign-up-box">
+   <h1>SIGN UP TO SAFEWALLET</h1> 
+   <div class="form">
+     <form action="/signup" method="POST" onsubmit="return validateForm();">
+   <div class="large-12">
+   
+   <div class="email">
+   <table width="100%" border="0">
+    <tr>
+      <td class="large-5">Username:</td>
+      <td ><input tabindex="1" name="name" type="text" class="info" placeholder="type your new account name" autofocus></td>
+    </tr>
+    <tr>
+      <td class="large-5">Email:</td>
+      <td ><input tabindex="2" name="email" type="email" placeholder="provide an optional email contact" ></td>
+    </tr>
+    <tr>
+      <td class="large-5">Password:</td>
+      <td ><input tabindex="3" name="password" type="password" class="info" placeholder="type your password"></td>
+    </tr>
+    <tr>
+      <td class="large-5">Confirm Password:</td>
+      <td ><input tabindex="4" name="confirmPassword" type="password" class="info" placeholder="confirm password"></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="align-right"><span class="button"><input tabindex="5" name="Submit" type="submit" class="image" value="Signup Now"></span></td>
+    </tr>
+  </table>
 
-    <p>
-        create a Safewallet by providing a username and optional email contact
-    </p>
-
-    <div id="form"></form>
-
+   </div>
+   </div>
+   </form>
+   </div><!--end form-->
+  </div> 
+  </div>
 </div>
+</section>
+
+
+
+<script type="text/javascript">
+  var mschema = require('mschema-mschema/index.js');
+
+  function validateForm () {
+    var isValid = true;
+    $('form input').each(function(i, item){
+      if (typeof schema.properties[item.name] !== 'undefined') {
+        var result = mschema.validate(item.value, schema.properties[item.name]);
+        if (!result.valid) {
+          isValid = false;
+          $(item).removeClass('success').removeClass('info').addClass('error');
+          //alert('invalid - ' + item.name + ' ' + item.value);
+        } else {
+          $(item).removeClass('error').removeClass('info').addClass('success');
+        }
+      }
+    });
+    // alert(isValid);
+    // check that passwords match
+    if ($('form input[name="password"]').attr('value') !== $('form input[name="confirmPassword"]').attr('value')) {
+      $('form input[name="password"]').removeClass('error').removeClass('success').addClass('info');
+      $('form input[name="confirmPassword"]').removeClass('info').removeClass('success').addClass('error');
+      isValid = false;
+    }
+    return isValid;
+  };
+</script>

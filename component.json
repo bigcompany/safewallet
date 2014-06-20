@@ -1,0 +1,23 @@
+{
+  "name": "safewallet",
+  "repo": "bigcompany/safewallet",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "mschema/mschema": "v0.5.3",
+    "felixge/dateformat": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ],
+  "templates": [
+    "template.html"
+  ],
+  "styles": [
+    "safewallet.css"
+  ]
+}

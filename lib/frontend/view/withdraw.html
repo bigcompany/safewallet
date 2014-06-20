@@ -1,8 +1,84 @@
-<div class="withdraw">
 
-  <p>
-     Are you certain you want to make a withdrawal? It's better to save then spend!
-  </p>
-
-  <div id="form"></div>
+<form action="/withdraw" method="POST" onsubmit="return validateForm();">
+<section class="navigation">
+<div class="row">
+  <div class="large-8 columns">
+    <nav>
+    <ul>
+    <li><a href="/account">ACCOUNT</a></li>
+    <li><a href="/wallet">WALLET</a></li>
+    <li><a href="/deposit">DEPOSIT</a></li>
+    <li><a href="/withdraw" class="active" >WITHDRAW</a></li>
+    </ul>
+    </nav>
+  </div>
+  <div class="large-4 columns">
+    <div class="balance align-right">
+      <h4 class="blue inline-block">
+        Total balance</h4>&nbsp;<img src="img/grey-dollar.png" alt="balance-sign">&nbsp;
+        <select class="inline-block" id="balanceSelect"></select>
+    </div>
+  </div>
+  
 </div>
+</section>
+<article class="withdraw">
+<div class="row">
+  <div class="large-12 columns">
+  <h1><img src="img/withdraw.png" alt="withdraw payments">&nbsp;Withdraw Payments</h1>
+  <p class="blue size16">Are you certain you want to make a withdrawal? It’s better to save then spend!</p>
+  </div>
+</div>
+<div class="row message-bar">
+  <div class="large-4 columns">
+  <h4 class="white bold">Currency</h4>
+  <br/>
+  <select name="currency">
+    <option value="bitcoin"><img src="img/bitcoin.png" width="22" alt="bitcoin">&nbsp;Bitcoins</option>
+    <option value="litecoin"><img src="img/litecoins.png" width="22" alt="litecoin">&nbsp;Litecoins</option>
+    <option value="namecoin"><img src="img/namecoins.png" width="22" alt="namecoin">&nbsp;Namecoins</option>
+  </select>
+  </div>
+  <div class="large-3 columns">
+    <h4 class="white bold">Amount</h4>
+    <br/>
+    <input name="amount" type="text" class="info-important" placeholder="amount to send">
+  </div>
+  <div class="large-5 columns">
+    <h4 class="white bold">Send to</h4>
+    <br/>
+    <input name="address" type="text" class="info-important" placeholder="address to send funds">
+  </div>
+  
+</div>
+
+<div class="row">
+<div class="large-12 column">
+<input name="withdraw-payments" type="submit" value="WITHDRAW PAYMENTS" class="button radius right size18">
+</div>
+</div>
+   
+</article>
+</form>
+
+<script type="text/javascript">
+  var mschema = require('mschema-mschema/index.js');
+  function validateForm () {
+    var isValid = true;
+    $('form input').each(function(i, item){
+      if (typeof schema.properties[item.name] !== 'undefined') {
+        var result = mschema.validate(item.value, schema.properties[item.name]);
+        if (!result.valid) {
+          isValid = false;
+          $(item).removeClass('success').removeClass('info').addClass('error');
+          //alert('invalid - ' + item.name + ' ' + item.value);
+        } else {
+          // $(item).removeClass('error').removeClass('info').addClass('success');
+        }
+      }
+    });
+    // alert(isValid);
+    return isValid;
+  };
+
+</script>
