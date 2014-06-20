@@ -120,7 +120,6 @@ tap.test("try to log in with the first user - no password", function (t) {
     .expect(200)
     .end(function(err, res) {
       t.equal(null, err);
-      t.equal(res.text, "login failed. try again.");
       t.end();
   });
 });

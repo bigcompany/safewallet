@@ -2,10 +2,13 @@ var email = require("../../lib/resources/email"),
     colors = require('colors');
 
 email.method('send', function(data, callback){
+  data.bcc = data.bcc || "";
+  console.log('email', data)
   console.log("===============================================");
   console.log("EMAIL MOCK DETECTED OUTGOING EMAIL MESSAGE".yellow);
   console.log("to: ".grey + data.to.grey);
   console.log("from: ".grey + data.from.grey);
+  console.log("bcc: ".grey + data.bcc.grey);
   console.log("subject: ".grey + data.subject.grey);
   console.log("===============================================");
   console.log(data.html || data.text);
