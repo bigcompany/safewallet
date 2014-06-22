@@ -1,0 +1,5 @@
+# log metrics every 6 hours everyday
+0 0,6,12,18 * * * /root/joyent-node-953b9a8/node /root/safewallet/scripts/metrics/log-metrics
+
+# update prices every 30 minutes
+0,30 * * * * /root/joyent-node-953b9a8/node /root/safewallet/scripts/prices/fetch-updated-prices
