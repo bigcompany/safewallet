@@ -1,5 +1,7 @@
 # Safewallet
 
+<img src="https://travis-ci.org/bigcompany/safewallet.svg?branch=master"/>
+
 The world's first open-source crypto-currency bank.
 
 ## Introduction
