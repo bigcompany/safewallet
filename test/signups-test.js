@@ -9,6 +9,7 @@ var tap = require("tap"),
     cookie = null;
 
 require('./mock/email');
+require('./mock/prices');
 
 tap.test("start safewallet server", function (t) {
   var server = require('../lib/frontend');
