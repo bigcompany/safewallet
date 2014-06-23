@@ -50,8 +50,6 @@ module['exports'] = {
   },
   "datasource": {
     type: "couchdb",
-    username: "admin",
-    password: "password",
     port: 5984,
     host: "localhost"
   },
