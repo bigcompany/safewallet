@@ -14,7 +14,7 @@ In moderns times crypto-currencies are a store of value. Coins exists as digital
 
  - 100% open and open-source
  - Hybrid On-line Off-line wallet system
- - Supports many leading crypto-currencies such as [Bitcoin](http://bitcoin.org) or [Peercoin](http://peercoin.net/)
+ - Supports many leading crypto-currencies such as [Bitcoin](http://bitcoin.org), [Peercoin](http://peercoin.net/), or [Dogecoin](http://dogecoin.com/)
  - User Account Management
  - Wallet Management
  - Advanced Security Features
